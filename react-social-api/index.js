@@ -29,6 +29,7 @@ app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 app.get("/images/:filename", (req, res) => {
   const { filename } = req.params;
+  console.log("Requested Filename:", filename);
   res.sendFile(path.join(__dirname, `public/images/${filename}`));
 });
 
@@ -39,13 +40,27 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
 
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "public/images");
+//   },
+//   filename: (req, file, cb) => {
+//     // const fileName = Date.now() + file.originalname;
+//     cb(null, req.body.name);
+//   },
+// });
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "public/images");
   },
   filename: (req, file, cb) => {
-    // const fileName = Date.now() + file.originalname;
-    cb(null, req.body.name);
+    const uniqueFileName =
+      Date.now() +
+      "-" +
+      Math.round(Math.random() * 1e9) +
+      path.extname(file.originalname);
+    cb(null, uniqueFileName);
   },
 });
 
@@ -54,7 +69,7 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
   try {
     return res.status(200).json("File uploaded successfully! ");
   } catch (err) {
-    cconsole.error("Error handling file upload:", err);
+    console.error("Error handling file upload:", err);
     return res.status(500).json({ error: "Internal Server Error" });
   }
 });

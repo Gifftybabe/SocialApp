@@ -9,6 +9,7 @@ export default function Share() {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const desc = useRef();
   const [file, setFile] = useState(null);
+  console.log({ file });
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -23,7 +24,8 @@ export default function Share() {
       data.append("file", file);
       data.append("name", fileName);
       newPost.img = fileName;
-      console.log(newPost);
+      console.log({ newPost });
+      console.log({ data });
       try {
         await axios.post("/upload", data);
       } catch (err) {
