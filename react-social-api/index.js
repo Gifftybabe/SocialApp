@@ -60,14 +60,19 @@ const storage = multer.diskStorage({
       "-" +
       Math.round(Math.random() * 1e9) +
       path.extname(file.originalname);
-    cb(null, uniqueFileName);
+    cb(null, file.originalname);
   },
 });
 
 const upload = multer({ storage });
 app.post("/api/upload", upload.single("file"), (req, res) => {
   try {
-    return res.status(200).json("File uploaded successfully! ");
+    return res
+      .status(200)
+      .json({
+        message: "File uploaded successfully!",
+        data: req.file.originalname,
+      });
   } catch (err) {
     console.error("Error handling file upload:", err);
     return res.status(500).json({ error: "Internal Server Error" });

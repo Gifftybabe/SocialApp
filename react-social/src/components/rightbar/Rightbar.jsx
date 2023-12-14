@@ -58,46 +58,6 @@ export default function Rightbar({ user }) {
             />
             <span className="rightbarFollowingName">Farinmade Josh</span>
           </div>
-          <div className="rightbarFollowing">
-            <img
-              src={`${PF}person/008.jpeg`}
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">Farinmade Josh</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src={`${PF}person/007.jpeg`}
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">Farinmade Josh</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src={`${PF}person/010.jpeg`}
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">Farinmade Josh</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src={`${PF}person/006.jpeg`}
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">Farinmade Josh</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src={`${PF}person/005.jpeg`}
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">Farinmade Josh</span>
-          </div>
         </div>
       </>
     );

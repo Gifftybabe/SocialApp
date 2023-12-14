@@ -23,11 +23,12 @@ export default function Share() {
       const fileName = Date.now() + file.name;
       data.append("file", file);
       data.append("name", fileName);
-      newPost.img = fileName;
+
       console.log({ newPost });
       console.log({ data });
       try {
-        await axios.post("/upload", data);
+        const resData = await axios.post("/upload", data);
+        newPost.img = resData.data.data;
       } catch (err) {
         console.log(err);
       }

@@ -35,15 +35,22 @@ export default function Profile() {
           <div className="profileRightTop">
             <div className="profileCover">
               <img
-                // src={`${PF}post/003.jpeg`}
-                src={user.coverPicture || PF + "person/noCover.jpeg"}
-                alt=""
                 className="profileCoverImg"
+                src={
+                  user.coverPicture
+                    ? PF + user.coverPicture
+                    : PF + "person/noCover.jpeg"
+                }
+                alt=""
               />
               <img
-                src={user.profilePicture || PF + "person/noAvatar.jpeg"}
-                alt=""
                 className="profileUserImg"
+                src={
+                  user.profilePicture
+                    ? PF + user.profilePicture
+                    : PF + "person/noAvatar.jpeg"
+                }
+                alt=""
               />
             </div>
             <div className="profileInfo">
