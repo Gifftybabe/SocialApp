@@ -91,6 +91,8 @@ app.use("/api/posts", postRoute);
 //   postRoute
 // );
 
-process.env PORT || app.listen(8800, () => {
-  console.log("Backend sever is running fast!");
+// Bind to the port specified by the environment variable or default to 8800
+const PORT = process.env.PORT || 8800;
+app.listen(PORT, () => {
+  console.log(`Backend server is running on port ${PORT}!`);
 });
