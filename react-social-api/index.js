@@ -91,6 +91,6 @@ app.use("/api/posts", postRoute);
 //   postRoute
 // );
 
-app.listen(8800, () => {
+process.env PORT || app.listen(8800, () => {
   console.log("Backend sever is running fast!");
 });
